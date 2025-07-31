@@ -1,0 +1,496 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #20424e;
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #f7f7f9;
+}
+
+.app-header h1 {
+    font-family: 'Nippo', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-header p {
+    font-family: 'Nippo', sans-serif;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* App Grid Layout */
+.app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .app-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Card Styles */
+.timer-card, .todo-card, .stats-card {
+    background: #aa8d83;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Timer Section */
+.timer-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.timer-header h2 {
+    font-family: 'Nippo', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+}
+
+.pomodoro-count {
+    color: #718096;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.9rem;
+}
+
+.timer-display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.time-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.progress-ring {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #e2e8f0;
+    stroke-width: 4;
+}
+
+.progress-ring-fill {
+    fill: none;
+    stroke: #667eea;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.time-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-family: 'Nippo', sans-serif;
+    font-weight: 700;
+    color: #2d3748;
+    text-align: center;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.selected-task {
+    text-align: center;
+    padding: 15px;
+    background: #f7fafc;
+
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.task-label {
+    color: #718096;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#selected-task-name {
+    font-family: 'Nippo', sans-serif;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+    transform: translateY(-1px);
+}
+
+.btn-add {
+    background: #48bb78;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 0 12px 12px 0;
+}
+
+.btn-add:hover {
+    background: #38a169;
+}
+
+.btn-icon {
+    font-family: 'Nippo', sans-serif;
+    font-size: 1.1rem;
+}
+
+/* Todo Section */
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.todo-header h2 {
+    font-family: 'Nippo', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.task-stats {
+    color: #718096;
+    font-family: 'Nippo', sans-serif;
+    font-weight: 500;
+}
+
+.add-todo-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#new-todo-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px 0 0 12px;
+    font-family: 'Nippo', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#new-todo-input:focus {
+    border-color: #667eea;
+}
+
+.todo-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    background: #f7fafc;
+    color: #718096;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.todo-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f7fafc;
+    border-radius: 12px;
+    border-left: 4px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.todo-item:hover {
+    background: #edf2f7;
+    transform: translateX(5px);
+}
+
+.todo-item.selected {
+    border-left-color: #667eea;
+    background: #e6fffa;
+}
+
+.todo-item.completed {
+    opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #718096;
+}
+
+.todo-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: #667eea;
+}
+
+.todo-content {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-text {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.todo-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #718096;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.9rem;
+}
+
+.pomodoro-count-badge {
+    background: #667eea;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-small {
+    padding: 6px 10px;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.8rem;
+    border-radius: 8px;
+}
+
+.btn-danger {
+    background: #f56565;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #e53e3e;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #718096;
+}
+
+.empty-icon {
+    font-family: 'Nippo', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* Stats Section */
+.stats-section {
+    margin-top: 20px;
+}
+
+.stats-card h3 {
+    font-family: 'Nippo', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 12px;
+}
+
+.stat-number {
+    font-family: 'Nippo', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #718096;
+    font-family: 'Nippo', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.timer-active .time-text {
+    animation: pulse 2s infinite;
+}
+
+.break-mode {
+    background: linear-gradient(135deg, #48bb78, #38a169) !important;
+}
+
+.break-mode .progress-ring-fill {
+    stroke: #48bb78;
+}
+
+/* Notification styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #667eea;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    font-family: 'Nippo', sans-serif;
+    z-index: 1000;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+/* Scrollbar Styles */
+.todo-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+.todo-list::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}

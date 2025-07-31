@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Pomodoro - Productivity App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=nippo@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Zen Space</h1>
+            <p>For when your brain has 47 tabs open but only 3 are responding</p>
+        </header>
+
+        <div class="app-grid">
+            <!-- Pomodoro Timer Section -->
+            <div class="timer-section">
+                <div class="timer-card">
+                    <div class="timer-header">
+                        <h2 id="timer-mode">Focus Time</h2>
+                        <div class="pomodoro-count">
+                            <span id="completed-pomodoros">0</span> completed today
+                        </div>
+                    </div>
+                    
+                    <div class="timer-display">
+                        <div class="time-circle">
+                            <svg class="progress-ring" viewBox="0 0 120 120">
+                                <circle cx="60" cy="60" r="54" class="progress-ring-bg"></circle>
+                                <circle cx="60" cy="60" r="54" class="progress-ring-fill" id="progress-circle"></circle>
+                            </svg>
+                            <div class="time-text" id="time-display">25:00</div>
+                        </div>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button id="start-pause-btn" class="btn btn-primary">
+                            <span class="btn-icon">▶</span>
+                            Start
+                        </button>
+                        <button id="reset-btn" class="btn btn-secondary">
+                            <span class="btn-icon">↻</span>
+                            Reset
+                        </button>
+                    </div>
+
+                    <div id="selected-task" class="selected-task">
+                        <span class="task-label">Working on:</span>
+                        <span id="selected-task-name">Select a task to start</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Todo List Section -->
+            <div class="todo-section">
+                <div class="todo-card">
+                    <div class="todo-header">
+                        <h2>Today's Tasks</h2>
+                        <div class="task-stats">
+                            <span id="completed-tasks">0</span>/<span id="total-tasks">0</span> done
+                        </div>
+                    </div>
+
+                    <form id="add-todo-form" class="add-todo-form">
+                        <input 
+                            type="text" 
+                            id="new-todo-input" 
+                            placeholder="Add a new task..." 
+                            maxlength="100"
+                        >
+                        <button type="submit" class="btn btn-add">
+                            <span class="btn-icon">+</span>
+                        </button>
+                    </form>
+
+                    <div class="todo-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+
+                    <ul id="todo-list" class="todo-list">
+                        <!-- Todos will be dynamically added here -->
+                    </ul>
+
+                    <div id="empty-state" class="empty-state">
+                        <div class="empty-icon">📝</div>
+                        <p>No tasks yet. Add one above to get started!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <div class="stats-card">
+                <h3>Today's Progress</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="focus-time">0h 0m</div>
+                        <div class="stat-label">Focus Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="tasks-completed">0</div>
+                        <div class="stat-label">Tasks Done</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="productivity-score">0%</div>
+                        <div class="stat-label">Productivity</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
